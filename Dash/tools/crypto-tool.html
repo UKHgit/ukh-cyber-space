@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Tool - UKH Cyber Tools</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@300;400;700;900&family=Exo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../dashboard.css">
+    <style>
+        .tool-container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 2rem;
+        }
+        
+        .tool-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .tool-header h1 {
+            font-family: 'Orbitron', monospace;
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px var(--glow-color);
+        }
+        
+        .crypto-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .crypto-section {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .crypto-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+            animation: scan 3s infinite;
+        }
+        
+        .section-title {
+            font-family: 'Orbitron', monospace;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .form-group textarea,
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            background: var(--background-darker);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 0.75rem;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            resize: vertical;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group textarea:focus,
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .cyber-button {
+            background: linear-gradient(45deg, var(--primary-color), #00cc00);
+            color: var(--background-dark);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-family: 'Orbitron', monospace;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+        
+        .cyber-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 255, 0, 0.4);
+        }
+        
+        .cyber-button.secondary {
+            background: var(--surface-color);
+            color: var(--primary-color);
+            border: 1px solid var(--border-color);
+        }
+        
+        .cyber-button.secondary:hover {
+            background: var(--primary-color);
+            color: var(--background-dark);
+        }
+        
+        .result-display {
+            background: var(--background-darker);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            word-break: break-all;
+            position: relative;
+            min-height: 100px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .copy-button {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            background: var(--primary-color);
+            color: var(--background-dark);
+            border: none;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+        }
+        
+        .copy-button:hover {
+            background: #00cc00;
+        }
+        
+        .hash-comparison {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .comparison-result {
+            padding: 1rem;
+            border-radius: 6px;
+            margin-top: 1rem;
+            font-family: 'Orbitron', monospace;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .match {
+            background: rgba(0, 255, 0, 0.2);
+            border: 1px solid var(--success-color);
+            color: var(--success-color);
+        }
+        
+        .no-match {
+            background: rgba(255, 0, 64, 0.2);
+            border: 1px solid var(--danger-color);
+            color: var(--danger-color);
+        }
+        
+        .file-input-wrapper {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            width: 100%;
+        }
+        
+        .file-input {
+            position: absolute;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+        
+        .file-input-display {
+            background: var(--background-darker);
+            border: 2px dashed var(--border-color);
+            border-radius: 6px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .file-input-display:hover {
+            border-color: var(--primary-color);
+            background: rgba(0, 255, 0, 0.05);
+        }
+        
+        .back-button {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            color: var(--primary-color);
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-family: 'Orbitron', monospace;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .back-button:hover {
+            background: var(--primary-color);
+            color: var(--background-dark);
+            box-shadow: 0 0 15px var(--glow-color);
+        }
+        
+        .algorithm-info {
+            background: rgba(0, 255, 0, 0.05);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        
+        @media (max-width: 768px) {
+            .crypto-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .button-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="../dashboard.html" class="back-button">
+        <i class="fas fa-arrow-left"></i> Back to Dashboard
+    </a>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <h1><i class="fas fa-lock"></i> Cryptography & Hash Tool</h1>
+            <p>Hash generation, encryption, decryption, and cryptographic analysis</p>
+        </div>
+
+        <div class="crypto-grid">
+            <!-- Hash Generator Section -->
+            <div class="crypto-section">
+                <h2 class="section-title">
+                    <i class="fas fa-fingerprint"></i> Hash Generator
+                </h2>
+                
+                <div class="form-group">
+                    <label>Input Text</label>
+                    <textarea id="hashInput" rows="4" placeholder="Enter text to hash..."></textarea>
+                </div>
+                
+                <div class="button-group">
+                    <button class="cyber-button" onclick="generateHash('md5')">MD5</button>
+                    <button class="cyber-button" onclick="generateHash('sha1')">SHA-1</button>
+                    <button class="cyber-button" onclick="generateHash('sha256')">SHA-256</button>
+                    <button class="cyber-button" onclick="generateHash('sha512')">SHA-512</button>
+                </div>
+                
+                <div class="algorithm-info" id="hashAlgorithmInfo">
+                    Select a hash algorithm to see information about it
+                </div>
+                
+                <div class="result-display" id="hashResult">
+                    Hash results will appear here...
+                    <button class="copy-button" onclick="copyToClipboard('hashResult')" style="display: none;">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- File Hash Section -->
+            <div class="crypto-section">
+                <h2 class="section-title">
+                    <i class="fas fa-file-alt"></i> File Hash Calculator
+                </h2>
+                
+                <div class="form-group">
+                    <label>Select File</label>
+                    <div class="file-input-wrapper">
+                        <input type="file" id="fileInput" class="file-input" onchange="handleFileSelect(event)">
+                        <div class="file-input-display">
+                            <i class="fas fa-cloud-upload-alt" style="font-size: 2rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+                            <div>Click to select a file or drag and drop</div>
+                            <div style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.5rem;">
+                                Maximum file size: 10MB
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="button-group">
+                    <button class="cyber-button" onclick="calculateFileHash('md5')" id="fileMd5Btn" disabled>MD5</button>
+                    <button class="cyber-button" onclick="calculateFileHash('sha1')" id="fileSha1Btn" disabled>SHA-1</button>
+                    <button class="cyber-button" onclick="calculateFileHash('sha256')" id="fileSha256Btn" disabled>SHA-256</button>
+                </div>
+                
+                <div class="result-display" id="fileHashResult">
+                    Select a file to calculate its hash...
+                    <button class="copy-button" onclick="copyToClipboard('fileHashResult')" style="display: none;">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="crypto-grid">
+            <!-- Encryption/Decryption Section -->
+            <div class="crypto-section">
+                <h2 class="section-title">
+                    <i class="fas fa-shield-alt"></i> Text Encryption
+                </h2>
+                
+                <div class="form-group">
+                    <label>Input Text</label>
+                    <textarea id="encryptInput" rows="4" placeholder="Enter text to encrypt/decrypt..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>Encryption Key</label>
+                    <input type="text" id="encryptionKey" placeholder="Enter encryption key...">
+                </div>
+                
+                <div class="form-group">
+                    <label>Algorithm</label>
+                    <select id="encryptionAlgorithm">
+                        <option value="aes">AES (Advanced Encryption Standard)</option>
+                        <option value="des">DES (Data Encryption Standard)</option>
+                        <option value="caesar">Caesar Cipher</option>
+                        <option value="base64">Base64 Encoding</option>
+                    </select>
+                </div>
+                
+                <div class="button-group">
+                    <button class="cyber-button" onclick="encryptText()">
+                        <i class="fas fa-lock"></i> Encrypt
+                    </button>
+                    <button class="cyber-button secondary" onclick="decryptText()">
+                        <i class="fas fa-unlock"></i> Decrypt
+                    </button>
+                    <button class="cyber-button secondary" onclick="generateRandomKey()">
+                        <i class="fas fa-key"></i> Random Key
+                    </button>
+                </div>
+                
+                <div class="result-display" id="encryptionResult">
+                    Encryption/decryption results will appear here...
+                    <button class="copy-button" onclick="copyToClipboard('encryptionResult')" style="display: none;">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Hash Comparison Section -->
+            <div class="crypto-section">
+                <h2 class="section-title">
+                    <i class="fas fa-balance-scale"></i> Hash Comparison
+                </h2>
+                
+                <div class="form-group">
+                    <label>Hash 1</label>
+                    <textarea id="hash1" rows="3" placeholder="Enter first hash..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>Hash 2</label>
+                    <textarea id="hash2" rows="3" placeholder="Enter second hash..."></textarea>
+                </div>
+                
+                <div class="button-group">
+                    <button class="cyber-button" onclick="compareHashes()">
+                        <i class="fas fa-equals"></i> Compare Hashes
+                    </button>
+                    <button class="cyber-button secondary" onclick="clearComparison()">
+                        <i class="fas fa-eraser"></i> Clear
+                    </button>
+                </div>
+                
+                <div id="comparisonResult"></div>
+            </div>
+
+            <!-- IP Tracker Section -->
+            <div class="crypto-section">
+                <h2 class="section-title">
+                    <i class="fas fa-map-marker-alt"></i> IP Geolocation Tracker
+                </h2>
+                
+                <div class="form-group">
+                    <label>IP Address</label>
+                    <input type="text" id="ip-input" placeholder="Enter IP address (e.g., 8.8.8.8)">
+                </div>
+                
+                <div class="button-group">
+                    <button class="cyber-button" onclick="cryptoTool.trackIP()">
+                        <i class="fas fa-search"></i> Track IP
+                    </button>
+                    <button class="cyber-button secondary" onclick="document.getElementById('ip-input').value = '8.8.8.8'">
+                        <i class="fas fa-globe"></i> Try Google DNS
+                    </button>
+                </div>
+                
+                <div class="result-display" id="ip-result">
+                    Enter an IP address to get geolocation information...
+                </div>
+            </div>
+        </div>
+
+        <!-- Hash Cracker Section -->
+        <div class="hash-comparison">
+            <h2 class="section-title">
+                <i class="fas fa-hammer"></i> Hash Analyzer & Dictionary Attack
+            </h2>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                <div>
+                    <div class="form-group">
+                        <label>Hash to Analyze</label>
+                        <textarea id="crackHash" rows="3" placeholder="Enter hash to analyze..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Hash Type</label>
+                        <select id="crackHashType">
+                            <option value="auto">Auto-detect</option>
+                            <option value="md5">MD5</option>
+                            <option value="sha1">SHA-1</option>
+                            <option value="sha256">SHA-256</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="form-group">
+                        <label>Dictionary Attack</label>
+                        <select id="dictionaryType">
+                            <option value="common">Common Passwords</option>
+                            <option value="numbers">Numbers (0-9999)</option>
+                            <option value="custom">Custom Wordlist</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group" id="customWordlistGroup" style="display: none;">
+                        <label>Custom Wordlist (one per line)</label>
+                        <textarea id="customWordlist" rows="4" placeholder="password123&#10;admin&#10;qwerty&#10;..."></textarea>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="button-group">
+                <button class="cyber-button" onclick="analyzeHash()">
+                    <i class="fas fa-search"></i> Analyze Hash
+                </button>
+                <button class="cyber-button" onclick="startDictionaryAttack()">
+                    <i class="fas fa-hammer"></i> Dictionary Attack
+                </button>
+                <button class="cyber-button secondary" onclick="stopAttack()">
+                    <i class="fas fa-stop"></i> Stop Attack
+                </button>
+            </div>
+            
+            <div class="result-display" id="crackResult">
+                Hash analysis results will appear here...
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="crypto-tool.js"></script>
+</body>
+</html>

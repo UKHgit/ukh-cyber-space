@@ -1,0 +1,29 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://ukh-cyber.netlify.app/sitemap.xml
+
+# Disallow specific files
+Disallow: /.git/
+Disallow: /node_modules/
+Disallow: /.netlify/
+Disallow: /package.json
+Disallow: /package-lock.json
+Disallow: /.gitignore
+Disallow: /netlify.toml
+
+# Allow important files
+Allow: /index.html
+Allow: /auth.html
+Allow: /styles.css
+Allow: /script.js
+Allow: /auth.css
+Allow: /auth.js
+Allow: /*.jpg
+Allow: /*.webp
+Allow: /*.png
+Allow: /*.svg
+
+# Crawl delay (optional)
+Crawl-delay: 1

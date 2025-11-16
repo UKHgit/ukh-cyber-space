@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UKH - Cyber Space | Cybersecurity Expert & AI Security Specialist</title>
+    <meta name="description" content="UKH Cyber Space - Professional cybersecurity services, AI-driven security solutions, penetration testing, and cyber defense expertise. Protecting digital assets with cutting-edge technology.">
+    <meta name="keywords" content="cybersecurity, cyber security, penetration testing, AI security, cyber defense, security consulting, threat analysis, vulnerability assessment">
+    <meta name="author" content="UKH (Bimsara Chamodya)">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#000000">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ukh-cyber.netlify.app/">
+    <meta property="og:title" content="UKH - Cyber Space | Cybersecurity Expert">
+    <meta property="og:description" content="Professional cybersecurity services, AI-driven security solutions, and cyber defense expertise.">
+    <meta property="og:image" content="https://ukh-cyber.netlify.app/cyber-profile.webp">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ukh-cyber.netlify.app/">
+    <meta property="twitter:title" content="UKH - Cyber Space | Cybersecurity Expert">
+    <meta property="twitter:description" content="Professional cybersecurity services, AI-driven security solutions, and cyber defense expertise.">
+    <meta property="twitter:image" content="https://ukh-cyber.netlify.app/cyber-profile.webp">
+
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Optimized font loading -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Exo:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Exo:wght@400;700&display=swap" rel="stylesheet"></noscript>
+    
+    <!-- Critical CSS inline -->
+    <style>
+        /* Critical above-the-fold styles */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #000; color: #fff; font-family: 'Exo', sans-serif; overflow-x: hidden; }
+        #welcome-screen { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: #000; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 1000; }
+        .hacker-loader { position: relative; width: 24em; height: 6em; background-color: #0a0a0a; border: 0.2em solid #00ff00; border-radius: 0.5em; padding: 1em; overflow: hidden; box-shadow: 0 0 1em rgba(0, 255, 0, 0.3); }
+    </style>
+    
+    <link rel="stylesheet" href="styles.css">
+    <meta name="google-site-verification" content="ANxyj7fM4kbiAJH7jMm2Loi6QxQNgYdhqq1oxTj3Mxc" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔒</text></svg>">
+</head>
+<body>
+    <!-- Welcome Screen -->
+    <div id="welcome-screen">
+        <div class="hacker-loader">
+            <div class="loader-text">
+                <span data-text="Initializing..." class="text-glitch">Initializing...</span>
+            </div>
+            <div class="loader-bar">
+                <div class="bar-fill"></div>
+                <div class="bar-glitch"></div>
+            </div>
+            <div class="particles">
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- User Box (only shown when logged in) -->
+    <div id="user-box" class="user-box" style="display: none;">
+        <button class="user-button" data-text="" id="user-button">
+            <span class="actual-text" id="user-name-display">&nbsp;User&nbsp;</span>
+            <span aria-hidden="true" class="hover-text" id="user-name-hover">&nbsp;User&nbsp;</span>
+        </button>
+        <div class="user-dropdown" id="user-dropdown">
+            <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
+    </div>
+
+    <!-- Navigation Menu -->
+    <nav>
+        <div id="particles-nav" class="particles"></div>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#cyber-lab">Cyber Lab</a>
+        <a href="#blog">Blog</a>
+        <a href="#contact">Contact</a>
+        <a href="auth.html" id="auth-link">Login</a>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home">
+        <div class="container">
+            <h1>UKH Cyber Space</h1>
+            <div id="circuit-pulses">
+                <div class="pulse-line"></div>
+                <div class="pulse-line"></div>
+                <div class="pulse-line"></div>
+                <div class="pulse-line"></div>
+            </div>
+        </div>
+        <div id="particles-home" class="particles"></div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <img src="cyber-profile.webp" alt="Cyber Profile" class="about-image" loading="lazy">
+                <div class="about-text">
+                    <p>I am a seasoned cyber security professional with over 4 years of experience in protecting digital assets. Specializing in advanced threat detection, encryption technologies, and autonomous security systems,I have helped numerous organizations fortify their defenses against cyber threats.</p>
+                </div>
+            </div>
+            <div class="about-cards">
+                <div class="about-card" onmousemove="trackGlow(event, this)" onmouseleave="resetGlow(this)">
+                    <img src="cyber-defense-expertise.webp" alt="Cyber Defense Expertise" loading="lazy">
+                    <h3>Cyber Defense Expertise</h3>
+                    <p>Expertise in developing robust cyber defense strategies, ensuring real-time threat mitigation with a 99.999% uptime record.</p>
+                </div>
+                <div class="about-card" onmousemove="trackGlow(event, this)" onmouseleave="resetGlow(this)">
+                    <img src="encryption-specialist.webp" alt="Encryption Specialist" loading="lazy">
+                    <h3>Encryption Specialist</h3>
+                    <p>Specializes in advanced encryption techniques, including 256-bit quantum encryption, to secure sensitive data against breaches.</p>
+                </div>
+                <div class="about-card" onmousemove="trackGlow(event, this)" onmouseleave="resetGlow(this)">
+                    <img src="ai-security-innovation.webp" alt="AI Security Innovation" loading="lazy">
+                    <h3>AI Security Innovation</h3>
+                    <p>Leads AI-driven security innovations, creating autonomous systems that predict and neutralize threats in milliseconds.</p>
+                </div>
+                <div class="about-card" onmousemove="trackGlow(event, this)" onmouseleave="resetGlow(this)">
+                    <img src="threat-analysis-master.webp" alt="Threat Analysis Master" loading="lazy">
+                    <h3>Threat Analysis Master</h3>
+                    <p>Master in analyzing complex cyber threats, providing actionable insights to prevent and mitigate attacks effectively.</p>
+                </div>
+            </div>
+        </div>
+        <div id="particles-about" class="particles"></div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <h2>Services</h2>
+            <div class="services-grid">
+                <div class="service-card" onmousemove="trackGlow(event, this)" onmouseleave="resetGlow(this)">
+                    <img src="cyber-defense.webp" alt="Cyber Defense" loading="lazy">
+                    <h3>Cyber Defense</h3>
+                    <p>Fortify your systems with state-of-the-art solutions ensuring real-time threat mitigation and robust protection.</p>
+                </div>
+                <div class="service-card" onmousemove="trackGlow(event, this)" onmouseleave="resetGlow(this)">
+                    <img src="smart-grid-security.webp" alt="Smart Grid Security" loading="lazy">
+                    <h3>Smart Grid Security</h3>
+                    <p>Protect critical infrastructure with advanced monitoring and encryption tailored for smart grids.</p>
+                </div>
+                <div class="service-card" onmousemove="trackGlow(event, this)" onmouseleave="resetGlow(this)">
+                    <img src="autonomous-security-bots.webp" alt="Autonomous Security Bots" loading="lazy">
+                    <h3>Autonomous Security Bots</h3>
+                    <p>Deploy AI-driven bots for proactive threat detection and autonomous response capabilities.</p>
+                </div>
+                <div class="service-card" onmousemove="trackGlow(event, this)" onmouseleave="resetGlow(this)">
+                    <img src="penetration-testing.webp" alt="Penetration Testing" loading="lazy">
+                    <h3>Penetration Testing</h3>
+                    <p>Identify vulnerabilities with comprehensive penetration testing services, simulating real-world attacks.</p>
+                </div>
+                <div class="service-card" onmousemove="trackGlow(event, this)" onmouseleave="resetGlow(this)">
+                    <img src="incident-response.webp" alt="Incident Response" loading="lazy">
+                    <h3>Incident Response</h3>
+                    <p>Rapidly contain and mitigate security incidents with our expert incident response team.</p>
+                </div>
+                <div class="service-card" onmousemove="trackGlow(event, this)" onmouseleave="resetGlow(this)">
+                    <img src="security-consulting.webp" alt="Security Consulting" loading="lazy">
+                    <h3>Security Consulting</h3>
+                    <p>Receive tailored security strategies and compliance guidance from our seasoned consultants.</p>
+                </div>
+                <div class="service-card" onmousemove="trackGlow(event, this)" onmouseleave="resetGlow(this)">
+                    <img src="vulnerability-assessment.webp" alt="Vulnerability Assessment" loading="lazy">
+                    <h3>Vulnerability Assessment</h3>
+                    <p>Identify weaknesses in your systems before attackers do with thorough vulnerability assessments.</p>
+                </div>
+                <div class="service-card" onmousemove="trackGlow(event, this)" onmouseleave="resetGlow(this)">
+                    <img src="security-auditing.webp" alt="Security Auditing" loading="lazy">
+                    <h3>Security Auditing</h3>
+                    <p>Ensure compliance with industry standards and best practices through detailed security audits.</p>
+                </div>
+                <div class="service-card" onmousemove="trackGlow(event, this)" onmouseleave="resetGlow(this)">
+                    <img src="cyber-security-training.webp" alt="Cyber Security Training" loading="lazy">
+                    <h3>Cyber Security Training</h3>
+                    <p>Educate your team on the latest threats and defense strategies with our comprehensive training programs.</p>
+                </div>
+            </div>
+        </div>
+        <div id="particles-services" class="particles"></div>
+    </section>
+
+    <!-- Cyber Lab Section -->
+<section id="cyber-lab">
+  <div class="container">
+    <h2>Cyber Lab</h2>
+    <div class="lab-grid">
+
+      <!-- Automated Artist Card -->
+      <a href="https://automated-artist.netlify.app" target="_blank" class="lab-item" 
+         style="text-decoration: none; color: white;" 
+         onmousemove="trackGlow(event, this)" onmouseleave="resetGlow(this)">
+        <img src="automated-artist.webp" alt="Automated Artist CNC" loading="lazy">
+        <h3 style="color: white;">Automated Artist</h3>
+        <p style="color: white;">
+          Futuristic CNC sketching powered by AI — this autonomous artist transforms your digital strokes into mechanical masterpieces. Click to explore.
+        </p>
+      </a>
+
+      <!-- Threat Visualization Card → Now ArmXplore -->
+      <a href="https://armxplore.netlify.app" target="_blank" class="lab-item" 
+         style="text-decoration: none; color: white;" 
+         onmousemove="trackGlow(event, this)" onmouseleave="resetGlow(this)">
+        <img src="armxplore.webp" alt="ArmXplore Robotic Arm App" loading="lazy">
+        <h3 style="color: white;">ArmXplore</h3>
+        <p style="color: white;">
+          Real-time mobile-controlled robotic arm interface — explore interactive movement, precision control, and engineering innovation.
+        </p>
+      </a>
+
+      <!-- Remaining Cards (unchanged) -->
+      <div class="lab-item" onmousemove="trackGlow(event, this)" onmouseleave="resetGlow(this)">
+        <h3>Simulated Terminal</h3>
+        <div class="terminal" id="terminal"></div>
+        <p>A simulated terminal for demonstrating command-line security tools and techniques.</p>
+      </div>
+
+      <div class="lab-item" onmousemove="trackGlow(event, this)" onmouseleave="resetGlow(this)">
+        <img src="malware-analysis-lab.webp" alt="Malware Analysis Lab" loading="lazy">
+        <h3>Malware Analysis Lab</h3>
+        <p>Dissect and understand malicious software in a controlled environment to develop countermeasures.</p>
+      </div>
+
+      <div class="lab-item" onmousemove="trackGlow(event, this)" onmouseleave="resetGlow(this)">
+        <img src="forensic-investigation-tools.webp" alt="Forensic Investigation Tools" loading="lazy">
+        <h3>Forensic Investigation Tools</h3>
+        <p>Uncover digital evidence to support incident response and legal proceedings with advanced forensic tools.</p>
+      </div>
+
+      <div class="lab-item" onmousemove="trackGlow(event, this)" onmouseleave="resetGlow(this)">
+        <img src="quantum-encryption-lab.webp" alt="Quantum Encryption Lab" loading="lazy">
+        <h3>Quantum Encryption Lab</h3>
+        <p>Explore state-of-the-art quantum encryption technologies to secure data against future threats.</p>
+      </div>
+
+    </div>
+  </div>
+  <div id="particles-cyber-lab" class="particles"></div>
+</section>
+
+
+    <!-- Blog Section -->
+    <section id="blog">
+        <div class="container">
+            <h2>Blog</h2>
+            <p>Stay updated with the latest in cyber security trends and cutting-edge technological innovations.</p>
+            <div class="blog-grid">
+                <div class="blog-item" onmousemove="trackGlow(event, this)" onmouseleave="resetGlow(this)">
+                    <img src="quantum-computing.webp" alt="Quantum Computing Breakthroughs" loading="lazy">
+                    <h3>Quantum Computing Breakthroughs</h3>
+                    <p>Quantum computing is revolutionizing technology in 2025 with machines capable of solving complex problems in seconds. Companies like IBM and Google are pushing quantum supremacy, offering unprecedented computational power for cryptography and AI.</p>
+                </div>
+                <div class="blog-item" onmousemove="trackGlow(event, this)" onmouseleave="resetGlow(this)">
+                    <img src="ai-enhanced-cybersecurity.webp" alt="AI-Enhanced Cybersecurity" loading="lazy">
+                    <h3>AI-Enhanced Cybersecurity</h3>
+                    <p>AI is transforming cybersecurity with real-time threat detection and autonomous response systems. In 2025, AI-driven tools can predict and neutralize cyber attacks faster than ever, keeping your digital assets secure.</p>
+                </div>
+                <div class="blog-item" onmousemove="trackGlow(event, this)" onmouseleave="resetGlow(this)">
+                    <img src="6g-networks.webp" alt="The Dawn of 6G Networks" loading="lazy">
+                    <h3>The Dawn of 6G Networks</h3>
+                    <p>Beyond 5G, 6G networks are emerging with speeds up to 100 times faster, enabling holographic communication and smart cities. Expected to roll out by 2030, 6G is already in testing phases in 2025.</p>
+                </div>
+                <div class="blog-item" onmousemove="trackGlow(event, this)" onmouseleave="resetGlow(this)">
+                    <img src="bio-tech-implants.webp" alt="Bio-Tech Implants" loading="lazy">
+                    <h3>Bio-Tech Implants</h3>
+                    <p>Bio-technological implants are merging human and machine in 2025. From neural interfaces to health-monitoring chips, these innovations promise enhanced capabilities and real-time medical insights.</p>
+                </div>
+            </div>
+        </div>
+        <div id="particles-blog" class="particles"></div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>Contact</h2>
+            <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you">
+                <!-- Hidden field for bot detection -->
+                <input type="hidden" name="form-name" value="contact">
+                <div style="display: none;">
+                    <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                </div>
+                
+                <div class="form-control">
+                    <input type="text" name="name" id="name" required>
+                    <label>
+                        <span style="transition-delay:0ms">N</span><span style="transition-delay:50ms">a</span><span style="transition-delay:100ms">m</span><span style="transition-delay:150ms">e</span>
+                    </label>
+                </div>
+                <div class="form-control">
+                    <input type="email" name="email" id="email" required>
+                    <label>
+                        <span style="transition-delay:0ms">E</span><span style="transition-delay:50ms">m</span><span style="transition-delay:100ms">a</span><span style="transition-delay:150ms">i</span><span style="transition-delay:200ms">l</span>
+                    </label>
+                </div>
+                                <div class="form-control">
+                    <textarea name="message" id="message" rows="5" required></textarea>
+                    <label>
+                        <span style="transition-delay:0ms">M</span><span style="transition-delay:50ms">e</span><span style="transition-delay:100ms">s</span><span style="transition-delay:150ms">s</span><span style="transition-delay:200ms">a</span><span style="transition-delay:250ms">g</span><span style="transition-delay:300ms">e</span>
+                    </label>
+                </div>
+                <div class="form-control">
+                    <div class="container">
+                        <button type="submit">Send Message</button>
+                    </div>
+                </div>
+            </form>
+            
+            <!-- WhatsApp Contact Section -->
+            <div class="whatsapp-section" style="margin-top: 2rem; text-align: center;">
+                <div class="whatsapp-container" style="display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                                        <a href="https://wa.me/94763896796" target="_blank" class="whatsapp-button">
+                        Contact via WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id="particles-contact" class="particles"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 UKH (Bimsara Chamodya) – Innovation encrypted. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+    <script src="contact-handler.js"></script>
+</body>
+</html>
+
+
