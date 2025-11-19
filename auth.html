@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Signup - UKH Cyber Space</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+    <canvas id="matrix-rain"></canvas>
+    <div id="auth-container">
+        <section id="login" class="auth-section active">
+            <div class="auth-box">
+                <h1>Login</h1>
+                <div class="auth-form">
+                    <div class="form-control">
+                        <input type="email" id="login-email" required>
+                        <label><span style="transition-delay:0ms">E</span><span style="transition-delay:50ms">m</span><span style="transition-delay:100ms">a</span><span style="transition-delay:150ms">i</span><span style="transition-delay:200ms">l</span></label>
+                    </div>
+                    <div class="form-control">
+                        <input type="password" id="login-password" required>
+                        <label><span style="transition-delay:0ms">P</span><span style="transition-delay:50ms">a</span><span style="transition-delay:100ms">s</span><span style="transition-delay:150ms">s</span><span style="transition-delay:200ms">w</span><span style="transition-delay:250ms">o</span><span style="transition-delay:300ms">r</span><span style="transition-delay:350ms">d</span></label>
+                    </div>
+                    <div class="form-control">
+                        <div class="container">
+                            <button type="button" class="animated-button" id="login-button">Login</button>
+                        </div>
+                    </div>
+                    <p>Don't have an account? <a href="#signup" class="link-glow">Signup</a></p>
+                </div>
+            </div>
+        </section>
+        <section id="signup" class="auth-section">
+            <div class="auth-box">
+                <h1>Signup</h1>
+                <div class="auth-form">
+                    <div class="form-control">
+                        <input type="text" id="signup-name" required>
+                        <label><span style="transition-delay:0ms">N</span><span style="transition-delay:50ms">a</span><span style="transition-delay:100ms">m</span><span style="transition-delay:150ms">e</span></label>
+                    </div>
+                    <div class="form-control">
+                        <input type="email" id="signup-email" required>
+                        <label><span style="transition-delay:0ms">E</span><span style="transition-delay:50ms">m</span><span style="transition-delay:100ms">a</span><span style="transition-delay:150ms">i</span><span style="transition-delay:200ms">l</span></label>
+                    </div>
+                    <div class="form-control">
+                        <input type="password" id="signup-password" required>
+                        <label><span style="transition-delay:0ms">P</span><span style="transition-delay:50ms">a</span><span style="transition-delay:100ms">s</span><span style="transition-delay:150ms">s</span><span style="transition-delay:200ms">w</span><span style="transition-delay:250ms">o</span><span style="transition-delay:300ms">r</span><span style="transition-delay:350ms">d</span></label>
+                    </div>
+                    <div class="form-control">
+                        <div class="container">
+                            <button type="button" class="animated-button" id="signup-button">Signup</button>
+                        </div>
+                    </div>
+                    <p>Already have an account? <a href="#login" class="link-glow">Login</a></p>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="auth.js"></script>
+</body>
+</html>

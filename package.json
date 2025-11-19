@@ -1,0 +1,37 @@
+{
+  "name": "ukh-cyber-space",
+  "version": "1.0.0",
+  "description": "UKH Cyber Space - Professional cybersecurity services, AI-driven security solutions, and cyber defense expertise",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server . -p 3000 -o",
+    "build": "echo 'Static site - no build needed'",
+    "deploy": "echo 'Deploy to Netlify'",
+    "test": "echo 'No tests specified'"
+  },
+  "keywords": [
+    "cybersecurity",
+    "cyber-security",
+    "penetration-testing",
+    "ai-security",
+    "cyber-defense",
+    "security-consulting",
+    "threat-analysis",
+    "vulnerability-assessment",
+    "portfolio",
+    "website"
+  ],
+  "author": "UKH (Bimsara Chamodya)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/ukh-cyber-space.git"
+  },
+  "homepage": "https://ukh-cyber.netlify.app",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
